@@ -154,7 +154,7 @@ function eck_pane_content_type_add_form_validate($form, &$form_state) {
 }
 
 function eck_pane_content_type_add_form_submit($form, &$form_state) {
-  eck__entity__form_submit($form, $form_state);
+  eck_pane_eck__entity__form_submit($form, $form_state);
 
   // Change the $subtype_name once the pane is created
   list(, $entity_type, $bundle) = explode(':', $form_state['subtype_name']);
@@ -190,6 +190,7 @@ function eck_pane_content_type_edit_form($form, &$form_state) {
     '#description' => t('Select a view mode for this pane.'),
     '#options' => EntityInfo::getViewModesOptions($entity_type),
     '#default_value' => $conf['view_mode'],
+    '#weight' => 100,
   );
 
   return $form;
@@ -200,7 +201,7 @@ function eck_pane_content_type_edit_form_validate($form, &$form_state) {
 }
 
 function eck_pane_content_type_edit_form_submit($form, &$form_state) {
-  eck__entity__form_submit($form, $form_state);
+  eck_pane_eck__entity__form_submit($form, $form_state);
 
   // Save conf
   $form_state['conf']['view_mode'] = $form_state['values']['view_mode'];
