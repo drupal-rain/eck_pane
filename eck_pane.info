@@ -1,0 +1,8 @@
+name = ECK pane
+description = Allow to create ctools content types for ECK entities.
+core = 7.x
+package = ECK
+
+dependencies[] = eck
+
+version = 7.x-1.x

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function eck_pane_ctools_plugin_directory($owner, $plugin_type) {
+  $owners = array('ctools');
+  if (in_array($owner, $owners)) {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+/**
+ * Load entity by subtype name.
+ */
+function eck_pane_load_entity($subtype) {
+  list($entity_type, $id) = explode(':', $subtype);
+  return entity_load_single($entity_type, $id);
+}
